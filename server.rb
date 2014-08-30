@@ -16,7 +16,7 @@ def db_connection
 end
 
 
-  get '/' do
+  get '/recipes' do
     query = "SELECT recipes.name FROM recipes ORDER BY name ASC"
     db_connection do |conn|
     @recipes_list = conn.exec(query)
