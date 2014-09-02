@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title> Recipe Lists </title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <title>Recipe Lists</title>
+  </head>
 
-<body>
-
-    <h1> List of Recipes' </h1>
+  <body>
+    <h1>List of Recipes</h1>
 
     <ul>
-    <% @recipes_list.each do |recipe| %>
+      <% @recipes_list.each do |recipe| %>
         <li>
-        <a href = "recipes/<%=recipe["id"]%>"><%=recipe ["name"]%>  </a>
+          <a href="recipes/<%=recipe["id"]%>"><%=recipe ["name"]%></a>
         </li>
-        <% end %>
+      <% end %>
     </ul>
-</body>
-
+  </body>
 </html>
