@@ -18,11 +18,7 @@ def db_connection
   end
 end
 
-###################################################
-#                    DATA
-###################################################
-
-get '/recipes' do
+def all_recipes
   query = "SELECT * FROM recipes
             ORDER BY recipes.name ASC;"
 
@@ -30,7 +26,15 @@ get '/recipes' do
     conn.exec(query)
   end
 
-  @recipes_list = recipes.to_a
+  recipes.to_a
+end
+
+###################################################
+#                    DATA
+###################################################
+
+get '/recipes' do
+  @recipes_list = all_recipes
 
   erb :'recipe_list'
 end
