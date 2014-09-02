@@ -31,10 +31,10 @@ end
 
 def recipe(id)
   query = "SELECT recipes.name AS name, recipes.instructions AS instructions, recipes.description AS description, ingredients.name AS ingredients, ingredients.recipe_id FROM recipes
-    JOIN ingredients ON ingredients.recipe_id = recipes.id WHERE ingredients.recipe_id = '#{id}';"
+    JOIN ingredients ON ingredients.recipe_id = recipes.id WHERE ingredients.recipe_id = $1;"
 
   recipes = db_connection do |conn|
-    conn.exec(query)
+    conn.exec_params(query, [id])
   end
 
   recipes.to_a
